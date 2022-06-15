@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Repertuar naszego kina</title>
+    <style>
+        td,th {
+            text-align: center;
+            padding:12px;
+        }
+        button{
+            transition: 0.35s;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>Tytuł</th>
+        <th>Data</th>
+        <th>Godzina</th>
+        <th>Czas trwania</th>
+        <th>Sala</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody th:utext="${seanse}">
+    </tbody>
+</table>
+</body>
+</html>

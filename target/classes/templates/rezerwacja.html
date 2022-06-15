@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Szczegóły rezerwacji</title>
+</head>
+<body>
+<table>
+    <tbody>
+        <tr><th>Imię</th><td th:text="${imie}"/></tr>
+        <tr><th>Nazwisko</th><td th:text="${nazwisko}"/></tr>
+        <tr><th>Nr. rezerwacji</th><td th:text="${id}"/></tr>
+        <tr><th>Tytuł filmu</th><td th:text="${tytul}"/></tr>
+        <tr><th>Data</th><td th:text="${data}"/></tr>
+        <tr><th>Godzina</th><td th:text="${godzina}"/></tr>
+        <tr><th>Rząd</th><td th:text="${rzad}"/></tr>
+        <tr><th>Miejsce</th><td th:text="${miejsce}"/></tr>
+        <tr><th>Sala</th><td th:text="${sala}"/></tr>
+    </tbody>
+</table>
+<form th:action="'/rezerwacja/'+${id}+'/delete'" method="post"><button>Anuluj rezerwację</button></form>
+</body>
+</html>

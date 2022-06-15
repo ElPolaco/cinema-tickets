@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wybierz miejsce</title>
+    <style>
+        .free{
+            background-color:darkgreen;
+            cursor: pointer;
+            transition: 0.65s;
+        }
+        .free:hover{
+            background-color:green;
+        }
+        table{
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .taken{
+            cursor: not-allowed;
+            background-color: red;
+        }
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        td{
+            width:4em;
+            height: 4em;
+        }
+        input[type="radio"]{
+            opacity: 0;
+            height: 0;
+            width: 0;
+            position: absolute;
+        }
+        label{
+            width: 100%;
+            height: 100%;
+            display: block;
+
+        }
+        td input[type="radio"]:checked + label{
+            background: orange ;
+        }
+        .centered{
+            margin-right:auto;
+            margin-left:auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<form action="/rezerwacja" method="post">
+<table>
+    <thead>
+    <tr>
+        <th>Rząd\Miejsce</th>
+        <th:block th:utext="${rzedy}"/>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="i,s1: ${miejsca}">
+        <th th:text="${s1.index + 1} "/>
+        <td th:each="j,s2: ${i}">
+            <span th:if="${j}"><input type="radio" name="miejsce" th:id="'input'+${s1.index}+${s2.index}" th:with="var1=${s1.index*s2.size},var2=${s2.index + 1}, var3=${var1+var2}" th:value="${var3}" required><label th:for="'input'+${s1.index}+${s2.index}" class="free"></label></span>
+            <label th:unless="${j}" class="taken"/>
+        </td>
+    </tr>
+    </tbody>
+</table>
+    <div class="centered">
+    <input type="text" name="imię" placeholder="Imię" required><input type="text" name="nazwisko" placeholder="Nazwisko" required>
+    <button>Rezerwuj</button>
+        <input type="hidden" name="id_seansu" th:value="${seans}">
+    </div>
+</form>
+</body>
+</html>

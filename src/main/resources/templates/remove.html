@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Usuń seans</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Tytuł</th>
+        <th>Usuń</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="pozycja: ${seanse}">
+        <td th:text="${pozycja.getId()}"/>
+        <td th:text="${pozycja.getTytul()}"/>
+        <td><a th:href="'/usun_seans/'+${pozycja.getId()}"><button>Usuń</button></a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
